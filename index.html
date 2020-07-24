@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- to do list -->
+  <form>
+    <p>
+      <label for="item">Item</label>
+      <input type="text" name="item" id="item">
+    </p>
+    <p>
+      <button id="addItem">Add item</button>
+    </p>
+    <ul id="items"></ul>
+  </form>
+
+
+
+  <script>
+
+
+// listen for when the button is clicked and then do this function
+    document.getElementById('addItem').addEventListener('click', event => {
+      event.preventDefault() 
+      console.log(document.getElementById('item').value)
+      // create the type of html element we want
+      let itemElem = document.createElement('li')
+      // give the item a class name
+      itemElem.className = 'todo'
+      // set its text content
+      itemElem.textContent = document.getElementById('item').value
+      // add it to the ul by append
+      document.getElementById('items').append(itemElem)
+      // clear out the string
+      document.getElementById('item').value = ''
+    })
+
+// add event listener to entire page for dynamically added elements
+    document.addEventListener('click', event => {
+      // use condintional logic to determine when to do something 
+      if (event.target.className === 'todo') {
+        console.log('works')
+
+        
+      }
+    })
+
+
+  </script>
+</body>
+</html>
