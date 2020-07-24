@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <style>
+
+    .green {
+      color: green;
+    }
+
+  </style>
+
 </head>
 <body>
   <!-- to do list -->
@@ -42,10 +51,17 @@
 // add event listener to entire page for dynamically added elements
     document.addEventListener('click', event => {
       // use condintional logic to determine when to do something 
-      if (event.target.className === 'todo') {
+      // event.target is the list item!!
+      if (event.target.classList.contains('todo')) {
         console.log('works')
 
-        
+        // If its green turn it black, if its black turn it green
+        if (event.target.classList.contains('green')) {
+          event.target.classList.remove('green')
+        } else {
+          event.target.classList.add('green')
+        }
+
       }
     })
 
